@@ -112,22 +112,24 @@ public class Person {
         sb.append(lastName);
         sb.append(" ");
         sb.append("has borrowed ");
+        if (lendedBooks.length == 0) {
+            sb.append("no books.");
+            return sb.toString();
+        }
+
         sb.append(lendedBooks.length);
         sb.append(" books");
         sb.append(System.lineSeparator());
 
-        if (lendedBooks.length != 0) {
-            StringBuilder sc = new StringBuilder();
-            sc.append("Following books are lended: ");
+        sb.append("Following books are lended: ");
 
-            for (int i = 0; i < lendedBooks.length; i++) {
-            sc.append(lendedBooks[i]);
+        for (int i = 0; ;i++) {
+            sb.append(lendedBooks[i].getBookInformation());
+            if (i == lendedBooks.length-1) {
+                return sb.append(".").toString();
             }
-
-            sb.append(sc);
+            sb.append(", ");
         }
-
-        return sb.toString();
 
     }
 

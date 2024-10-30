@@ -28,6 +28,12 @@ public class Main {
         person3.loanBook(book1);
         person1.returnBook(book2);
         person2.loanBook(book2);
+        person1.loanBook(book1);
+        person1.loanBook(book2);
+        person1.loanBook(book3);
+        person1.loanBook(book4);
+        person1.loanBook(book5);
+        System.out.println(person1.getPersonLendingInformation());
 
 
 
