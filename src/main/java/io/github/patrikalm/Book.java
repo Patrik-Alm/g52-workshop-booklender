@@ -27,23 +27,25 @@ public class Book {
         borrower = null;
     }
 
-    public void switchAvailable(Book book) {
+    public void switchAvailable() {
 
         //This method just swithces from one state to another.
         //Can be a litte tricky but in this special case it works.
 
-        if (book.available) {
+        if (this.available) {
 
-            book.available = false;
+            this.available = false;
         }
 
-            book.available = true;
+        else {
 
+            this.available = true;
+        }
     }
 
     public boolean isAvailable() {
 
-        return available;
+        return this.available;
     }
 
     public String getBookInformation() {

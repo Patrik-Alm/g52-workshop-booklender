@@ -21,6 +21,14 @@ public class Main {
         person1.loanBook(book1);
         System.out.println(person1.getPersonLendingInformation());
         System.out.println(book3.getBookDetailInformation());
+        person1.returnBook(book1);
+        System.out.println(person1.getPersonLendingInformation());
+        person1.loanBook(book2);
+        person2.loanBook(book2);
+        person3.loanBook(book1);
+        person1.returnBook(book2);
+        person2.loanBook(book2);
+
 
 
     }

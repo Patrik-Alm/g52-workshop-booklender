@@ -1,8 +1,7 @@
 package io.github.patrikalm;
 
 
-import com.sun.source.tree.ContinueTree;
-
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Person {
@@ -37,23 +36,17 @@ public class Person {
     }
 
     public void loanBook(Book book) {
-
+        System.out.println(book.isAvailable());
         if (book.isAvailable()) {
 
-            //adding the lended book using new local array and Arrays.copyOf to make space in the array
-            /*if (lendedBooks == null) {
-                Book[] localLendedBooks = new Book[1];
-                localLendedBooks [0] = book;
-            }
-            else {*/
-                Book[] localLendedBooks = new Book[lendedBooks.length + 1];
-                lendedBooks = Arrays.copyOf(lendedBooks, localLendedBooks.length);
-                lendedBooks[lendedBooks.length - 1] = book;
+            Book[] localLendedBooks = new Book[lendedBooks.length + 1];
+            lendedBooks = Arrays.copyOf(lendedBooks, localLendedBooks.length);
+            lendedBooks[lendedBooks.length - 1] = book;
 
 
             book.setBorrower(this);
 
-            book.switchAvailable(book);
+            book.switchAvailable();
 
             System.out.println("You have now lent the book.");
 
@@ -96,15 +89,16 @@ public class Person {
                 }
             }
             lendedBooks = Arrays.copyOf(localLendedBooks, localLendedBooks.length);
-        }
-        else {
+        } else {
 
             lendedBooks = new Book[0];
         }
 
 
         book.removeBorrower(book);
-        book.switchAvailable(book);
+        book.switchAvailable();
+
+        System.out.println("You have now returned the book.");
 
     }
 
@@ -125,10 +119,14 @@ public class Person {
         if (lendedBooks.length != 0) {
             StringBuilder sc = new StringBuilder();
             sc.append("Following books are lended: ");
-            sc.append(Arrays.toString(lendedBooks));
-            sb= sb.append(sc);
+
+            for (int i = 0; i < lendedBooks.length; i++) {
+            sc.append(lendedBooks[i]);
+            }
+
+            sb.append(sc);
         }
-        
+
         return sb.toString();
 
     }
