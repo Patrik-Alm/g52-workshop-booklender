@@ -29,8 +29,8 @@ public class Book {
 
     public void switchAvailable() {
 
-        //This method just swithces from one state to another.
-        //Can be a litte tricky but in this special case it works.
+        //This method just switches from one state to another.
+        //Can be a little tricky but in this special case it works.
 
         if (this.available) {
 

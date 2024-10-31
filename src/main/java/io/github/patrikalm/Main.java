@@ -34,6 +34,11 @@ public class Main {
         person1.loanBook(book4);
         person1.loanBook(book5);
         System.out.println(person1.getPersonLendingInformation());
+        person3.returnBook(book1);
+        person2.returnBook(book2);
+        person1.loanBook(book1);
+        person1.loanBook(book2);
+        System.out.println(person1.getPersonLendingInformation());
 
 
 

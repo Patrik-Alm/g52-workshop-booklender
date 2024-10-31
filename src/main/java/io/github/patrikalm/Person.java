@@ -36,7 +36,7 @@ public class Person {
     }
 
     public void loanBook(Book book) {
-        System.out.println(book.isAvailable());
+
         if (book.isAvailable()) {
 
             Book[] localLendedBooks = new Book[lendedBooks.length + 1];
